@@ -1,6 +1,21 @@
-def rearrange_system_of_equations(coefficient_matrix,
-                                  unknown_vector,
-                                  constant_vector):
+import numpy as np
+from typing import Optional
+
+def rearrange_system_of_equations(coefficient_matrix: np.ndarray,
+                                  unknown_vector: np.ndarray,
+                                  constant_vector: np.ndarray
+                                 ) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Rearranges a linear system A @ x = b to a standard form, where some entries of x or b are unknown.
+
+    Parameters:
+        coefficient_matrix (np.ndarray): Coefficient matrix of shape (m, m).
+        unknown_vector (np.ndarray): Solution vector with some entries as `None` (unknowns).
+        constant_vector (np.ndarray): Right-hand side vector with some entries as `None`.
+
+    Returns:
+        tuple: A tuple (A, b) in the standard form that can be fed to solvers.
+    """
     m = coefficient_matrix.shape[0]
     if m != coefficient_matrix.shape[1] or \
        m != unknown_vector.shape[0] or \
