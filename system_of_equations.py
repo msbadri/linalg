@@ -45,4 +45,4 @@ def rearrange_system_of_equations(coefficient_matrix: np.ndarray,
             temp[j] = number
             b += temp
         j += 1
-    return A, b
+    return (A, b)
